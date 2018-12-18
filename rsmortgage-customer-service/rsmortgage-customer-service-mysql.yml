@@ -1,12 +1,20 @@
-server.port: 9001
-spring.jpa.database: "MYSQL"
-spring.datasource.platform:  "mysql"
-spring.jpa.show-sql: "true"
-spring.database.driverClassName: "com.mysql.jdbc.Driver"
-spring.datasource.url: "jdbc:mysql://localhost:3306/rsmortgage"
-spring.datasource.username: "root"
-spring.datasource.password: "rootpassword"
-spring.datasource.testWhileIdle: "true"
-spring.datasource.validationQuery: "SELECT 1"
-spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.MySQLInnoDBDialect"
-spring.jpa.properties.hibernate.ddl-auto: "update"
+server:
+  port: 9001
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/rsmortgage
+    username: root
+    password: rootpassword
+    tomcat.max-wait: 20000
+    tomcat.max-active: 50
+    tomcat.max-idle: 20
+    tomcat.min-idle: 15
+    validationQuery: SELECT 1
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    format-sql: true
+    hibernate:
+      ddl-auto: update
